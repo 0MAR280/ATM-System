@@ -571,7 +571,7 @@ void quickWithdraw(stBankAccount& bankAccount = *activeUser)
 }
 void withdraw(stBankAccount& bankAccount = *activeUser)
 {
-	string withdrawMSG = "Withdraw Amount (Min: " + to_string(minWithdrawAmount) + " | Max: " + to_string(bankAccount.balance) + ") (-1 to Quit): ";
+	string withdrawMSG = "Withdraw Amount (Max: " + to_string(bankAccount.balance) + ") (-1 to Quit): ";
 	double withdrawAmount;
 	bool confirm;
 
