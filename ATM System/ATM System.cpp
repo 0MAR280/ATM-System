@@ -13,9 +13,6 @@ const string ignoreKeyword = "@SysIgnore";
 const string fileName = "bankData.txt";
 const string delimiter = "|.|";
 
-short const accNoLen = 4;
-double const minWithdrawAmount = 10.0;
-
 enum enSecureTransaction { QWT = 1, WIT = 2, DEP = 3, CHK = 4, EXT = 5 };
 
 vector <string> secureActions = {
@@ -572,7 +569,7 @@ void quickWithdraw(stBankAccount& bankAccount = *activeUser)
 void withdraw(stBankAccount& bankAccount = *activeUser)
 {
 	string withdrawMSG = "Withdraw Amount (Max: " + to_string(bankAccount.balance) + ") (-1 to Quit): ";
-	double withdrawAmount;
+	int withdrawAmount;
 	bool confirm;
 
 	displayBankAccountCard(bankAccount);
@@ -581,10 +578,10 @@ void withdraw(stBankAccount& bankAccount = *activeUser)
 	{
 		withdrawAmount = inputNumberInRange(0, bankAccount.balance, withdrawMSG);
 
-		if ((int)withdrawAmount % 5 != 0)
+		if (withdrawAmount % 5 != 0)
 			cout << "Value must be a multiple of 5!\n";
 
-	} while ((int)withdrawAmount % 5 != 0 && withdrawAmount != 0);
+	} while (withdrawAmount % 5 != 0 && withdrawAmount != 0);
 
 	system("cls");
 
