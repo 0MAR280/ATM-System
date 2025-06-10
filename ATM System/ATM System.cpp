@@ -568,7 +568,7 @@ void quickWithdraw(stBankAccount& bankAccount = *activeUser)
 }
 void withdraw(stBankAccount& bankAccount = *activeUser)
 {
-	string withdrawMSG = "Withdraw Amount (Max: " + to_string(bankAccount.balance) + ") (-1 to Quit): ";
+	string withdrawMSG = "Withdraw Amount (Max: " + to_string(bankAccount.balance) + ") (0 to Quit): ";
 	int withdrawAmount;
 	bool confirm;
 
@@ -606,7 +606,7 @@ void deposit(stBankAccount& bankAccount = *activeUser)
 	bool confirm;
 
 	displayBankAccountCard(bankAccount);
-	depositAmount = inputNumberInRange(0, DBL_MAX, "Deposit Amount (-1 to Quit): ");
+	depositAmount = inputNumberInRange(0, DBL_MAX, "Deposit Amount (0 to Quit): ");
 
 	system("cls");
 
